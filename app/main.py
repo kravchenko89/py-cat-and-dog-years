@@ -1,5 +1,8 @@
 def get_human_age(cat_age: int, dog_age: int) -> list[int]:
-    def convert(age: int, first_thresh: int, second_thresh: int, step: int) -> int:
+    def convert(age: int,
+                first_thresh: int,
+                second_thresh: int,
+                step: int) -> int:
         if age < first_thresh:
             return 0
         human = 1
