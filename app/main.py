@@ -1,20 +1,23 @@
 def get_human_age(cat_age: int, dog_age: int) -> list[int]:
-    def convert(age: int,
-                first_thresh: int,
-                second_thresh: int,
-                step: int) -> int:
-        if age < first_thresh:
-            return 0
-        human = 1
-        remaining = age - first_thresh
-        if remaining > second_thresh:
-            human += 1
-            remaining -= second_thresh
-            human += remaining // step
-        elif remaining > 0:
-            human += 0
-        return human
 
-    cat_human = convert(cat_age, 15, 9, 4)
-    dog_human = convert(dog_age, 15, 9, 5)
-    return [cat_human, dog_human]
+    def convert_cat(age: int) -> int:
+        if age == 0:
+            return 0
+        elif age <= 15:
+            return 1
+        elif age <= 24:  # 15+9
+            return 2
+        else:
+            return 2 + (age - 24) // 4 + (1 if (age - 24) % 4 else 0)
+
+    def convert_dog(age: int) -> int:
+        if age == 0:
+            return 0
+        elif age <= 15:
+            return 1
+        elif age <= 24:
+            return 2
+        else:
+            return 2 + (age - 24) // 5 + (1 if (age - 24) % 5 else 0)
+
+    return [convert_cat(cat_age), convert_dog(dog_age)]
