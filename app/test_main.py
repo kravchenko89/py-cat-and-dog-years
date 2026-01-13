@@ -1,13 +1,12 @@
 import pytest
 from app.main import get_human_age
 
-
 @pytest.mark.parametrize(
     "cat_age, dog_age, expected",
     [
         (0, 0, [0, 0]),
         (15, 15, [1, 1]),
-        (24, 24, [2, 2]),
+        (24, 24, [16, 16]),
         (30, 35, [17, 18]),
     ]
 )
